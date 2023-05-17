@@ -4,9 +4,9 @@ Unidirectional data flow state management library.
 
 [Document](https://gsm-msg.github.io/Store/documentation/store/)
 
-## contents- [Store](#store)
+## contents
 - [Store](#store)
-  - [contents- Store](#contents--store)
+  - [contents](#contents)
   - [Requirements](#requirements)
   - [Overview](#overview)
   - [Communication](#communication)
