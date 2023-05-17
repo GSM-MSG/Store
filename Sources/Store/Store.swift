@@ -31,7 +31,7 @@ public extension Store {
         mutate(state: currentState, action: action)
             .sink { [weak self] mutate in
                 guard let self else { return }
-                let newState = self.reduce(state: currentState, mutate: mutate)
+                let newState = self.reduce(state: self.currentState, mutate: mutate)
                 self.stateSubject.send(newState)
             }
             .store(in: &subscription)
