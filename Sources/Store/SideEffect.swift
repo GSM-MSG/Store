@@ -28,13 +28,6 @@ extension SideEffect {
             .eraseToSideEffect()
     }
 
-    public func map<T>(
-        _ transform: @escaping (Output) -> T
-    ) -> SideEffect<T, Failure> {
-        (self.map(transform) as Publishers.Map<Self, T>)
-            .eraseToSideEffect()
-    }
-
     public static func just(
         _ value: Output
     ) -> Self {
@@ -126,6 +119,13 @@ extension SideEffect {
             return subject.handleEvents(receiveCancel: task.cancel)
         }
         .eraseToSideEffect()
+    }
+
+    public func map<T>(
+        _ transform: @escaping (Output) -> T
+    ) -> SideEffect<T, Failure> {
+        (self.map(transform) as Publishers.Map<Self, T>)
+            .eraseToSideEffect()
     }
 
     public func catchMap(
