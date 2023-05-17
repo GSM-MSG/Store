@@ -121,49 +121,19 @@ final class SampleViewController: UIViewController {
         self.store = .init(initialState: .init())
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private let countLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "0"
-        return label
-    }()
-    private let plusButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("+", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-    private let minusButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("-", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
+
+    private let countLabel: UILabel = {...}()
+    private let plusButton: UIButton = {...}()
+    private let minusButton: UIButton = {...}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(countLabel)
-        view.addSubview(plusButton)
-        view.addSubview(minusButton)
 
-        NSLayoutConstraint.activate([
-            countLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            countLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            plusButton.trailingAnchor.constraint(equalTo: countLabel.leadingAnchor),
-            plusButton.centerYAnchor.constraint(equalTo: countLabel.centerYAnchor),
-
-            minusButton.leadingAnchor.constraint(equalTo: countLabel.trailingAnchor),
-            minusButton.centerYAnchor.constraint(equalTo: countLabel.centerYAnchor)
-        ])
+        ...
 
         plusButton.addAction(UIAction(handler: { [weak self] _ in
             self?.store.send(.plusButtonDidTap)
