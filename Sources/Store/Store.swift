@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 public protocol Store: AnyObject {
-    associatedtype State: Equatable
+    associatedtype State
     associatedtype Action
     associatedtype Mutation
 
